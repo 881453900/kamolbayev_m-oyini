@@ -1,0 +1,32 @@
+import random
+
+def oyin():
+    print("\n=== SOZLAMALAR ===")
+    maksimal_son = int(input("Sonlar chegarasini kiriting (masalan, 100): "))
+    imkoniyat = int(input("Nechta urinish berilsin? (masalan, 7): "))
+    
+    yashirin_son = random.randint(1, maksimal_son)
+    urinish = 0
+    print(f"\n1 dan {maksimal_son} gacha son o'yladim. {imkoniyat} ta imkoniyatingiz bor!")
+
+    while urinish < imkoniyat:
+        print(f"Sizda {imkoniyat - urinish} ta imkoniyat qoldi.")
+        try:
+            taxmin = int(input("Soningizni kiriting: "))
+        except ValueError:
+            print("Iltimos, faqat butun son kiriting!")
+            continue
+        urinish += 1
+
+        if taxmin < yashirin_son:
+            print("Kattaroq son kiriting!\n")
+        elif taxmin > yashirin_son:
+            print("Kichikroq son kiriting!\n")
+        else:
+            print(f"🎉 Tabriklayman! {urinish} ta urinishda topdingiz!\n")
+            return
+
+    print(f"😢 Yutqazdingiz! Men o'ylagan son {yashirin_son} edi.\n")
+
+oyin()
++
